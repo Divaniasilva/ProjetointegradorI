@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Organic Shop</title>
+		<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+	</head>
+	<body>
+
+		<!-- CABEÇALHO -->
+		<header class="header">
+
+			<div class="logo">ORGANIC SHOP </div>
+
+			<div class="box">
+				<div style="width: 350px; height: 50px; float: left; text-align: center; padding-top: 13px;">
+					{{mensagem}}
+				</div>
+
+				<div class="welcome_exit">
+					<div class="exit"><a href="/" ><img src="/static/imagens/icons/exit.png" alt="Sair" title="Sair"></a></div>
+				</div>
+			</div>
+
+		</header>
+
+		<div class="safe_nav_conteudo">
+
+			<!-- MENU DE NAVEGAÇÃO LATERAL -->
+			<nav class="nav">
+
+				<!-- PRODUTOS -->
+				<ul style="margin-bottom: 0px;">
+					<a href="/produtos_lista">
+						<li>
+							<div style="width: 100%; height: 25px; padding-left: 18px;">
+								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
+								<div style="margin-top: 2px; float: left;">Produtos</div>
+							</div>
+						</li>
+					</a>
+				</ul>
+
+				<!-- CARRINHO -->
+				<ul style="margin-bottom: 0px;">
+					<a href="/carrinho">
+						<li id='divcar'>
+							<div style="width: 100%; height: 25px; padding-left: 18px;">
+								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
+								<div style="margin-top: 2px; float: left;" >Carrinho</div>
+							</div>
+						</li>
+					</a>
+				</ul>
+
+				<!-- CADASTRAR PRODUTOS -->
+				<ul style="margin-bottom: 0px;">
+					<a href="/produto">
+						<li class="active">
+							<div style="width: 100%; height: 25px; padding-left: 18px;">
+								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
+								<div style="margin-top: 2px; float: left;">Cadastrar Produtos</div>
+							</div>
+						</li>
+					</a>
+				</ul>
+
+				<!-- USUÁRIOS CADASTRADOS -->
+				<ul style="margin-bottom: 0px;">
+					<a href="/listar_usuario">
+						<li>
+							<div style="width: 100%; height: 25px; padding-left: 18px;">
+								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
+								<div style="margin-top: 2px; float: left;">Usuários Cadastrados</div>
+							</div>
+						</li>
+					</a>
+				</ul>
+			</nav>
+
+			<div class="container_conteudo">
+                <div class="cadastra_produto">
+
+					<h4>Cadastrar Produto</h4>
+
+					<div class="seg_form">
+
+						<label>Dados do produto:</label>
+
+						<!-- FORMULÁRIO PARA CADASTRAR PRODUTOS -->
+						<form action="/produtos" method="POST">
+							<div class="form-group">
+								<input type="text" class="form-control" id="id_nome_produto" name="id_nome_produto" placeholder="Nome" maxlength="30" required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="id_descricao" name="id_descricao" placeholder="Descrição" maxlength="40" required>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-6" style="padding-left: 0px; padding-right: 0px;">
+									<input type="text" class="form-control" id="id_qtd_produto" name="id_qtd_produto" placeholder="Quantidade" maxlength="3" required>
+								</div>
+								<div class="form-group col-md-6">
+									<input type="text" class="form-control" id="id_preco_produto" name="id_preco_produto" placeholder="Preço" maxlength="10" required>
+								</div>
+							</div>
+							<input type="submit" class="btn_cadastro_prod" name="btn_enviar" value="Cadastrar">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- SCRIPTS -->
+		<script src="/static/js/jquery.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+	</body>
+</html>

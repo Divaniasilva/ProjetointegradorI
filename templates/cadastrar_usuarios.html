@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cadastrar Usuários | Login</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <a href="/">Voltar</a>
+
+        <div id="segura-form-usuarios">
+            <form name="form-usuarios" action="/usuario{%if editavel!= None%}/{{editavel.id}}{% endif %}" method="POST">
+                <input type="text" value="{{editavel.nome}}" class="form-control" id="id_nome" name="id_nome" placeholder="Nome" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.telefone}}" class="form-control" onkeydown="javascript: fMasc(this, mTEL);" name="id_telefone" id="id_telefone" placeholder="Telefone" maxlength="15" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.email}}" class="form-control" id="id_email" name="id_email" placeholder="E-mail" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.documento}}" class="form-control" id="id_documento" name="id_documento" placeholder="Cpf / Cnpj" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.senha}}" class="form-control" id="id_senha" name="id_senha" placeholder="Senha" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.cep}}" class="form-control" onkeydown="javascript: fMasc(this, mCEP);" name="id_cep" id="id_cep" placeholder="Cep" maxlength="9" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.logradouro}}" class="form-control" id="id_logradouro" name="id_logradouro" placeholder="Logradouro" required disabled style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.numero}}"class="form-control" id="id_numero" name="id_numero" placeholder="Nº" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.bairro}}" class="form-control" id="id_bairro" name="id_bairro" placeholder="Bairro" required disabled style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.cidade}}" class="form-control" id="id_cidade" name="id_cidade" placeholder="Cidade" required disabled style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+                <input type="text" value="{{editavel.estado}}" class="form-control" id="id_estado" name="id_estado" placeholder="Estado" required disabled style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 10px;">
+
+                <div id="radio_produtor">
+                    <input type="radio" id="categoria" name="categoria" value="1">
+                    <label for="produtor">Produtor</label><br>
+                </div>
+                
+                <div id="radio_consumidor">
+                    <input type="radio" id="categoria" name="categoria" value="2">
+                    <label for="consumidor">Consumidor</label><br>
+                </div>
+                <input type="submit" class="btn_entrar" name="btn_cadastrar" value="Cadastrar">
+            </form>
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/mascaras.js"></script>
+    </body>
+</html>

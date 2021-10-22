@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Usuarios</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <h1>Usuarios:</h1>
+        <table>
+            <tr>
+                <td>Nome </td>
+                <td>Telefone </td>
+                <td>E-mail </td>
+                <td>Documento </td>
+                <td>Senha </td>
+                <td>Categoria </td>
+                <td></td>
+                <td>&nbsp;</td>
+            </tr>
+            {% for usu in usuarios %}
+                <tr>
+                    <td>{{usu.nome}}</td>
+                    <td>{{usu.telefone}}</td>
+                    <td>{{usu.email}}</td>
+                    <td>{{usu.documento}}</td>
+                    <td>{{usu.senha}}</td>
+                    <td>{% if usu.idCategoria == 1 %}Produtor{% else %}Consumidor{% endif %}</td>
+                    <td><a href="/usuario/{{usu.id}}" class="botao">Editar</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <p><a href="/" class="botao">Voltar</a></p>
+    </body>
+</html>

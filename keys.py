@@ -1,0 +1,2 @@
+__pub_key = 'pk_test_KoLJlYei9kUFrORmdpXFUvGZ00ojYcnPeW'
+__secret_key = 'sk_test_iY4vV9BJaxrUf2OKKcFHTp2000KYYc8Bne'

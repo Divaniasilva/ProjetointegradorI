@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Organic Shop | Login</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <script src="/static/js/mascaras.js"></script>
+    </head>
+    <body class="background_login">
+        <div class="overlay">
+            <div class="content_login">
+                <div class="form_login">
+                    <div class="header_login">
+                        <div class="logo_login">Login</div> <br>
+                        {{mensagem}}
+                    </div>
+                    <!-- FORMULÁRIO DE LOGIN -->
+                    <form name="form-login" action="/logado" method="POST">
+                        
+                        <input type="text" onkeydown="javascript: fMasc(this, mCPF);" name="documento" class="form-control" id="id_cpf" placeholder="DOCUMENTO" maxlength="14" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc;"> <br>
+                        <input type="password" class="form-control" id="id_senha" name= "senha" placeholder="SENHA" maxlength="8" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 22px;">
+                        <input type="submit" class="btn_entrar" name="btn_logar" value="Entrar">
+                    </form>
+
+                    <a href="/cadastrar_usuarios">Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="/static/js/jquery.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+    </body>
+</html>
