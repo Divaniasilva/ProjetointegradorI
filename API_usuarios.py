@@ -23,6 +23,19 @@ def row_to_dict(description, row):
         dict[description[i][0]] = row[i]
     return dict
 
+@usuarios_app.route("/logado", methods = ["POST"])
+def validar_login():
+    user = dict()
+    user["documento"] = request.form["documento"].replace('.','').replace('-','')
+    user["senha"] = request.form["senha"]
+    #Validação temporária
+
+    if(user["documento"] == '4321' and user["senha"]=='1234'):
+        return render_template("cadastrar_produtos.html", mensagem = f"Seja bem vindo! tester")
+    return render_template("index.html", mensagem = f"Documento e/ou senha invalidos")
+
+
+
 # Converte uma lista de linhas em um lista de dicionários.
 def rows_to_dict(description, rows):
     result = []
@@ -54,17 +67,6 @@ def cadastrar_usuarios():
     new_user = novo_usuario["nome"]
     result = service_novo(novo_usuario)
     return render_template("index.html", mensagem = f"{new_user}, obrigado pelo cadastro")
-
-@usuarios_app.route("/logado", methods = ["POST"])
-def validar_login():
-    user = dict()
-    user["documento"] = request.form["documento"].replace('.','').replace('-','')
-    user["senha"] = request.form["senha"]
-    #Validação temporária
-
-    if(user["documento"] == '4321' and user["senha"]=='1234'):
-        return render_template("cadastrar_produtos.html", mensagem = f"Seja bem vindo! tester")
-    return render_template("index.html", mensagem = f"Documento e/ou senha invalidos")
 
 
 @usuarios_app.route("/listar_usuario", methods = ["GET"])

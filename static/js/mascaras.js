@@ -174,7 +174,7 @@ function checkout_pay(){
     $(this).attr('class',"stripe-button");
     $(this).attr('data-key',"pk_test_KoLJlYei9kUFrORmdpXFUvGZ00ojYcnPeW");
     $(this).attr('data-amount',total.toString()+'00');
-    $(this).attr('data-name',"Organic Shop");
+    $(this).attr('data-name',"Gestão de Estoque");
     $(this).attr('data-description',"Os melhores alimentos com você!");
     $(this).attr('data-locale',"auto");
     $(this).attr('data-image',"https://stripe.com/img/documentation/checkout/marketplace.png");

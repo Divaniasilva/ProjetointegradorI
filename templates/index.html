@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Organic Shop | Login</title>
+        <title>Gestão de Estoque | Login</title>
         <link rel="stylesheet" href="/static/css/bootstrap.min.css">
         <link rel="stylesheet" href="/static/css/style.css">
         <script src="/static/js/mascaras.js"></script>
@@ -20,12 +20,12 @@
                     <!-- FORMULÁRIO DE LOGIN -->
                     <form name="form-login" action="/logado" method="POST">
                         
-                        <input type="text" onkeydown="javascript: fMasc(this, mCPF);" name="documento" class="form-control" id="id_cpf" placeholder="DOCUMENTO" maxlength="14" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc;"> <br>
+                        <input type="text" name="documento" class="form-control" id="id_ codigo" placeholder="CODIGO" maxlength="14" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc;"> <br>
                         <input type="password" class="form-control" id="id_senha" name= "senha" placeholder="SENHA" maxlength="8" required style="height: 45px; box-shadow: 0px 2px 6px #cccccc; margin-bottom: 22px;">
                         <input type="submit" class="btn_entrar" name="btn_logar" value="Entrar">
                     </form>
 
-                    <a href="/cadastrar_usuarios">Cadastre-se</a>
+                        <!--<a href="/cadastrar_usuarios">Cadastre-se</a>-->
                 </div>
             </div>
         </div>
