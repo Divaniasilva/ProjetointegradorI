@@ -35,7 +35,7 @@
 				<!-- PRODUTOS -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/produtos_lista">
-						<li>
+						<li class="active">
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;">Produtos</div>
@@ -46,7 +46,7 @@
 
 				<!-- ESTOQUE -->
 				<ul style="margin-bottom: 0px;">
-					<a href="/produtos_lista">
+					<a href="/estoque_lista">
 						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
@@ -55,14 +55,14 @@
 						</li>
 					</a>
 				</ul>
-                
-                <!-- CARRINHO -->
+
+				<!-- CARRINHO -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/carrinho">
-						<li id='divcar'>
+						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
-								<div style="margin-top: 2px; float: left;">Carrinho</div>
+								<div style="margin-top: 2px; float: left;" >Carrinho</div>
 							</div>
 						</li>
 					</a>
@@ -74,11 +74,23 @@
 						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
-								<div style="margin-top: 2px; float: left;">Cadastrar Produtos</div>
+								<div style="margin-top: 2px; float: left;">Cadastrar Produtos Base</div>
 							</div>
 						</li>
 					</a>
-                </ul>
+				</ul>
+
+				<!-- CADASTRAR ESTOQUE -->
+				<ul style="margin-bottom: 0px;">
+					<a href="/estoque">
+						<li>
+							<div style="width: 100%; height: 25px; padding-left: 18px;">
+								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
+								<div style="margin-top: 2px; float: left;">Cadastrar estoque</div>
+							</div>
+						</li>
+					</a>
+				</ul>
 
 				<!-- USUÁRIOS CADASTRADOS -->
 				<ul style="margin-bottom: 0px;">
@@ -97,33 +109,32 @@
                 <div class="cadastra_produto">
 		
 					<!-- PRODUTOS -->
-					<h4>Produtos</h4>
+					<h4>Produtos Base</h4>
 
 					<div class="lista_produto">
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">Nome</th>
-									<th scope="col" style="text-align: left;">Descrição</th>
-									<th scope="col" style="text-align: right;">Quantidade</th>
-									<th scope="col" style="text-align: right;">Preço</th>
-									<th scope="col" style="text-align: right;">Distancia</th>
-									<th scope="col" style="text-align: right;">Status</th>
+									<th scope="col" style="text-align: left;">Nome</th>
+									<th scope="col" style="text-align: center;">Cor</th>
+									<th scope="col" style="text-align: right;">Unidade</th>
+									<!--<th scope="col" style="text-align: right;">Distancia</th>
+									<th scope="col" style="text-align: right;">Status</th>-->
                                     <th scope="col" style="text-align: center; color: white;">Opções</th>
 								</tr>
 							</thead>
 							<tbody>
 								{% for prod in produtos %}
 								<tr>
-									<td>{{prod.nome}}</td>
-									<td style="text-align: left;">{{prod.descricao}}</td>
-									<td style="text-align: right;">{{prod.quantidade}}</td>
-									<td style="text-align: right;">{{prod.preco}}</td>
+									<td style="text-align: left;">{{prod.nome}}</td>
+									<td style="text-align: center;">{{prod.cor}}</td>
+									<td style="text-align: right;">{{prod.unidade}}</td>
+									<!--<td style="text-align: right;">{{prod.preco}}</td>
 									<td style="text-align: right;">{{prod.km}}</td>
-									<td style="text-align: right;">{{prod.status}}</td>
+									<td style="text-align: right;">{{prod.status}}</td>-->
 									<td style="text-align: center;">
-										<a href="/carrinho/{{prod.id}}" method="POST">
-                                            <img src="/static/imagens/icons/adicionar.png" alt="Adicionar ao Carrinho" title="Adicionar ao Carrinho">
+										<a href="/produtos/{{prod.id}}" method="POST">
+                                            <img src="/static/imagens/icons/update.png" alt="Editar" title="Editar produto base">
 										</a>
 									</td>
 								</tr>

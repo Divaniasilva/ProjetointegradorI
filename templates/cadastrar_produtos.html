@@ -115,15 +115,15 @@
 						<label>Dados do produto:</label>
 
 						<!-- FORMULÁRIO PARA CADASTRAR PRODUTOS -->
-						<form action="/produtos" method="POST">
+						<form action="/produtos{%if editavel!= None%}/{{editavel.id}}{% endif %}" method="PUT">
 							<div class="form-group">
-								<input type="text" class="form-control" id="id_nome_produto" name="id_nome_produto" placeholder="Nome" required>
+								<input type="text" value="{{editavel.nome}}" class="form-control" id="id_nome_produto" name="id_nome_produto" placeholder="Nome" required>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" id="id_unidade" name="id_unidade" placeholder="Unidade de Medida" required>
+								<input type="text"value="{{editavel.cor}}" class="form-control" id="id_cor" name="id_cor" placeholder="Cor" required>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" id="id_cor" name="id_cor" placeholder="Cor" required>
+								<input type="text" value="{{editavel.unidade}}" class="form-control" id="id_unidade" name="id_unidade" placeholder="Unidade de Medida" required>
 							</div>
 							<input type="submit" class="btn_cadastro_prod" name="btn_enviar" value="Cadastrar">
 						</form>

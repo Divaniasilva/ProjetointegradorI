@@ -1,6 +1,6 @@
 from flask import Flask
 from API_usuarios import usuarios_app
-import sqlite3
+from API_produtos import produtos_app
 
 # inicializacao do bd SQLITE3
 #con = sqlite3.connect('organic_shop')
@@ -24,7 +24,12 @@ import sqlite3
 
 app = Flask(__name__)
 app.register_blueprint(usuarios_app)
-
+app.register_blueprint(produtos_app)
+# app.config['MYSQL_DATABASE_USER'] = 'root'
+# app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+# app.config['MYSQL_DATABASE_DB'] = 'artes'
+# app.config['MYSQL_DATABASE_Host']='127.0.0.1:3306'
+# mysql=MySQL(app)
 
 if __name__ == '__main__':
     # subprocess.Popen("analise_banco_dados.py", shell=True)

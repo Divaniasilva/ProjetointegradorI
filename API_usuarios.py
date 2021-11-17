@@ -31,7 +31,7 @@ def validar_login():
     #Validação temporária
 
     if(user["documento"] == '4321' and user["senha"]=='1234'):
-        return render_template("cadastrar_produtos.html", mensagem = f"Seja bem vindo! tester")
+        return render_template("cadastrar_produtos.html", mensagem = f"Seja bem vindo! tester", editavel=None)
     return render_template("index.html", mensagem = f"Documento e/ou senha invalidos")
 
 
