@@ -115,7 +115,7 @@
 						<label>Dados do produto:</label>
 
 						<!-- FORMULÁRIO PARA CADASTRAR PRODUTOS -->
-						<form action="/produtos{%if editavel!= None%}/{{editavel.id}}{% endif %}" method="PUT">
+						<form action="/produtos{%if editavel!= None%}/{{editavel.id}}{% endif %}" method="POST">
 							<div class="form-group">
 								<input type="text" value="{{editavel.nome}}" class="form-control" id="id_nome_produto" name="id_nome_produto" placeholder="Nome" required>
 							</div>

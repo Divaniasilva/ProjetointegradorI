@@ -37,7 +37,7 @@ def lista_produto():
 
 @produtos_app.route("/produto")
 def validar_login():
-    return render_template("cadastrar_produtos.html", mensagem = f"")
+    return render_template("cadastrar_produtos.html", mensagem = f"", editavel=None)
 # @produtos_app.route("/produtos_lista")
 # def form_prod():
 #     return render_template("cadastrar_produtos.html", editavel="")
@@ -52,14 +52,14 @@ def cadastrar_produtos():
     new_user = novo_produto["nome"]
     print(novo_produto)
     result = service_novo(novo_produto)
-    return render_template("cadastrar_produtos.html", mensagem = "Produto "+f"{new_user}, cadastrado com sucesso")
+    return render_template("cadastrar_produtos.html", mensagem = "Produto "+f"{new_user}, cadastrado com sucesso", editavel=None)
 
 @produtos_app.route("/produtos/<id_produto>")
 def rendireciona_update(id_produto):
     localizado = service_localiza(id_produto)
     return render_template("cadastrar_produtos.html", editavel=localizado)
 
-@produtos_app.route("/produtos/<id_prod>", methods = ["PUT"])
+@produtos_app.route("/produtos/<id_prod>", methods = ["POST"])
 def editar_usuarios(id_prod):
     #ATUALIZAR PARA PEGAR APENAS OS DADOS DO PERFIL DAQUELE USUARIO
     edita_usuario = dict()
@@ -69,7 +69,7 @@ def editar_usuarios(id_prod):
     edita_usuario["unidade"] = request.form["id_unidade"]
     print(edita_usuario)
     new_user = edita_usuario["nome"];
-    return render_template("cadastrar_produtos.html", mensagem = f"{new_user}, produto base editado")
+    return render_template("cadastrar_produtos.html", mensagem = f"{new_user}, produto base editado", editavel=None)
 # def bubble_sort(lista):
 #     #KM DE VANTAGEM
 #      elementos = len(lista)-1
