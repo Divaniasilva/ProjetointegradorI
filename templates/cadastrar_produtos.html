@@ -91,18 +91,6 @@
 						</li>
 					</a>
 				</ul>
-
-				<!-- USUÁRIOS CADASTRADOS -->
-				<ul style="margin-bottom: 0px;">
-					<a href="/listar_usuario">
-						<li>
-							<div style="width: 100%; height: 25px; padding-left: 18px;">
-								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
-								<div style="margin-top: 2px; float: left;">Usuários Cadastrados</div>
-							</div>
-						</li>
-					</a>
-				</ul>
 			</nav>
 
 			<div class="container_conteudo">
@@ -125,7 +113,7 @@
 							<div class="form-group">
 								<input type="text" value="{{editavel.unidade}}" class="form-control" id="id_unidade" name="id_unidade" placeholder="Unidade de Medida" required>
 							</div>
-							<input type="submit" class="btn_cadastro_prod" name="btn_enviar" value="Cadastrar">
+							<input type="submit" class="btn_cadastro_prod" name="btn_enviar" value="{%if editavel== None%}Cadastrar{%else%}Editar{% endif %}">
 						</form>
 					</div>
 				</div>

@@ -21,7 +21,7 @@
 				</div>
 
 				<div class="welcome_exit">
-					<div class="exit"><a href="/"><img src="/static/imagens/icons/exit.png" alt="Sair" title="Sair"></a></div>
+					<div class="exit"><a href="/" ><img src="/static/imagens/icons/exit.png" alt="Sair" title="Sair"></a></div>
 				</div>
 			</div>
 
@@ -47,7 +47,7 @@
 				<!-- ESTOQUE -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/estoque_lista">
-						<li>
+						<li class="active">
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;">Estoque</div>
@@ -59,7 +59,7 @@
 				<!-- CARRINHO -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/carrinho">
-						<li id='divcar'>
+						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;" >Carrinho</div>
@@ -70,8 +70,8 @@
 
 				<!-- CADASTRAR PRODUTOS -->
 				<ul style="margin-bottom: 0px;">
-					<a href="/produto">
-						<li class="active">
+					<a href="/produtos">
+						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;">Cadastrar Produtos Base</div>
@@ -80,10 +80,10 @@
 					</a>
 				</ul>
 
-				<!-- CADASTRAR PRODUTOS -->
+				<!-- CADASTRAR ESTOQUE -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/estoque">
-						<li class="active">
+						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;">Cadastrar estoque</div>
@@ -96,57 +96,40 @@
 			<div class="container_conteudo">
                 <div class="cadastra_produto">
 		
-					<!-- CARRINHO -->
-					<h4>Carrinho</h4>
+					<!-- PRODUTOS -->
+					<h4>Produtos Base</h4>
 
 					<div class="lista_produto">
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">Produto</th>
-									<th scope="col" style="text-align: left;">Descrição</th>
-									<th scope="col" style="text-align: center;">Quantidade</th>
-                                    <th scope="col" style="text-align: right;">Total</th>
+									<th scope="col" style="text-align: left;">Nome</th>
+									<th scope="col" style="text-align: left;">Tipo</th>
+									<th scope="col" style="text-align: left;">Cor</th>
+									<th scope="col" style="text-align: left;">Em estoque</th>
+									<th scope="col" style="text-align: left;">Unidade</th>
+									<!--<th scope="col" style="text-align: right;">Distancia</th>
+									<th scope="col" style="text-align: right;">Status</th>-->
                                     <th scope="col" style="text-align: center; color: white;">Opções</th>
 								</tr>
 							</thead>
 							<tbody>
-								{% for car in carrinho %}
+								{% for e in estoque %}
 								<tr>
-									<td>{{car.nome_produto}}</td>
-									<td id="descricao{{car.id}}" style="text-align: left;">{{car.descricao}}</td>
-                                    <td style="text-align: center;">
-									<input id="quantidade_{{car.id}}" onclick="mudaPrecoVisual('{{car.id}}','{{car.preco}}')" type="number" value="{{car.quantidade}}" min="1" max="{{car.maximo}}" step="1">
-                                    </td>
-									<td id="total{{car.id}}" style="text-align: right;" value='{{car.preco}}'>{{car.preco}}</td>
+									<td style="text-align: left;">{{e.nome}}</td>
+									<td style="text-align: left;">{{e.tipo}}</td>
+									<td style="text-align: left;">{{e.cor}}</td>
+									<td style="text-align: left;">{{e.estoque}}</td>
+									<td style="text-align: left;">{{e.unidade}}</td>
 									<td style="text-align: center;">
-										<a href="/retira_produto/{{car.id}}">
-                                            <img src="/static/imagens/icons/delete.png" alt="Excluir produto" title="Excluir produto">
-                                            <!--<img src="/static/imagens/icons/ok.png" alt="Fechar pedido" title="Fechar pedido">-->
+										<a href="/estoque/{{e.id}}" method="POST">
+                                            <img src="/static/imagens/icons/update.png" alt="Editar" title="Editar produto base">
 										</a>
 									</td>
 								</tr>
 								{% endfor %}
 							</tbody>
 						</table>
-						<h2 id='valorTotal'>R$ 00,00</h1>
-						<button id='btn_pay' onclick='checkout_pay()'>Finalizar Pedido</button>
-						<form action="/pagamento" method="POST">
-							<input id='valor_python' name='teste' type='hidden' ></input>
-							<script id='teste'></script>
-							<!-- <script
-							id='teste2' 
-							  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-							  data-key="{{ pub_key }}"
-							  data-amount=""
-							  data-name="Gestão de Estoque"
-							  data-description="Os melhores alimentos com você!"
-							  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-							  data-locale="auto">
-							</script> -->
-						</form>
-
-						
 					</div>
 				</div>
 			</div>
@@ -155,6 +138,5 @@
 		<!-- SCRIPTS -->
 		<script src="/static/js/jquery.js"></script>
 		<script src="/static/js/bootstrap.min.js"></script>
-		<script src="/static/js/mascaras.js"></script>
 	</body>
 </html>

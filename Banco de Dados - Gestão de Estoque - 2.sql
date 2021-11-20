@@ -18,6 +18,7 @@ nome varchar(100) not null,
 unidade varchar(20) not null,
 cor varchar(30) not null
 );
+select * from produto_base
 
 insert into produto_base(nome, unidade, cor) values('Ziper','Unitário','Preto'),
 ('Ziper','Unitário','Branco'),
@@ -42,7 +43,7 @@ insert into compras(id_produto, tipo, valor, quantidade) values(1,'Material',11,
 insert into compras(id_produto, tipo, valor, quantidade) values(3,'Tecido',10.9, 1);
 insert into compras(id_produto, tipo, valor, quantidade) values(4,'Tecido',9.9, 2);
 insert into compras(id_produto, tipo, valor, quantidade) values(4,'Tecido',0, -1);
-
+insert into compras(id_produto, tipo, valor, quantidade) values(4,'Tecido',0, -0.8);
 select * from compras;
 
 #tela inicial com ultimas compras
@@ -52,8 +53,9 @@ on c.id_produto = pb.id;
 
 #Tabela final de estoque,
 #Validação de baixa de estoque = Cadastrar uma compra nova (apenas via backend) com valor negativo
-#valro negativo = quantidade a ser retirada
-select c.id, pb.nome, c.tipo, pb.cor, sum(c.quantidade) 'Em Estoque', pb.unidade from compras as c
+#valor negativo = quantidade a ser retirada
+select c.id,pb.nome, c.tipo, pb.cor, format(sum(c.quantidade),2) 'Em Estoque', pb.unidade,pb.id
+from compras as c
 inner join produto_base as pb
 on c.id_produto = pb.id
 group by pb.id;
@@ -85,7 +87,7 @@ INSERT INTO estoque_cadastro (
 id_cadastro, 
 produto_nome, 
 produto_tipo, 
-produto_cor, 
+produto_cor, tbl_user
 unidade_medida, 
 preço, 
 data_compra) VALUES
