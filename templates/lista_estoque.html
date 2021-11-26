@@ -109,6 +109,7 @@
 									<th scope="col" style="text-align: left;">Cor</th>
 									<th scope="col" style="text-align: left;">Em estoque</th>
 									<th scope="col" style="text-align: left;">Unidade</th>
+									<th scope="col" style="text-align: left;">Baixa</th>
 									<!--<th scope="col" style="text-align: right;">Distancia</th>
 									<th scope="col" style="text-align: right;">Status</th>-->
                                     <th scope="col" style="text-align: center; color: white;">Opções</th>
@@ -122,6 +123,7 @@
 									<td style="text-align: left;">{{e.cor}}</td>
 									<td style="text-align: left;">{{e.estoque}}</td>
 									<td style="text-align: left;">{{e.unidade}}</td>
+									<td style="text-align: right;"><input type="text" style="width:75px;" class="form-control" id="id_baixa" name="id_baixa" placeholder=".." required></td>
 									<td style="text-align: center;">
 										<a href="/estoque/{{e.id}}" method="POST">
                                             <img src="/static/imagens/icons/update.png" alt="Editar" title="Editar produto base">

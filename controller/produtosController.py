@@ -13,7 +13,6 @@ def localiza(id_produto):
 def novo(novo_produto):
     p = Produtos.cria(novo_produto)
     novo_dao(p.__dict__())
-    return listar_dao()
 
 def atualiza(novo_produto):
     for p in listar_dao():

@@ -17,7 +17,7 @@ def localiza_compras():
 def novo(novo_estoque):
     p = Estoque.cria(novo_estoque)
     novo_dao(p.__dict__())
-    return listar_dao()
+    #return listar_dao()
 
 # def atualiza(novo_estoque):
 #     for p in listar_dao():

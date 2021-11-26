@@ -33,7 +33,7 @@ def cadastrar_produtos():
     # print(novo_produto)
     new_user = novo_produto["nome"]
     print(novo_produto)
-    result = service_novo(novo_produto)
+    service_novo(novo_produto)
     return render_template("cadastrar_produtos.html", mensagem = "Produto "+f"{new_user}, cadastrado com sucesso", editavel=None)
 
 @produtos_app.route("/produtos/<id_produto>")

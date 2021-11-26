@@ -1,5 +1,5 @@
 class Estoque():
-    def __init__(self, nome, tipo, cor,estoque,unidade, id_produto,id=None, valor=None, dataCompra=None):
+    def __init__(self, nome, tipo, cor,estoque,unidade, id_produto,id=None, preco=None, dataCompra=None):
         self.id =id
         self.id_produto =id_produto
         self.nome =nome
@@ -7,20 +7,21 @@ class Estoque():
         self.cor =cor
         self.estoque =estoque
         self.unidade =unidade
-        self.valor =valor
+        self.preco =preco
         self.dataCompra =dataCompra
 
 
     def atualizar(self, dados):
         try:
-            id = dados["id"]
-            id_produto=dados["id_produto"]
-            nome = dados["nome"]
-            tipo = dados["tipo"]
-            cor = dados["cor"]
-            estoque = dados["estoque"]
-            unidade = dados["unidade"]
-            self.id, self.nome, self.tipo,self.cor,self.estoque, self.unidade, self.id_produto
+            self.id = dados["id"]
+            self.id_produto=dados["id_produto"]
+            self.nome = dados["nome"]
+            self.tipo = dados["tipo"]
+            self.cor = dados["cor"]
+            self.estoque = dados["estoque"]
+            self.unidade = dados["unidade"]
+            self.preco = dados["preco"]
+            self.id, self.nome, self.tipo,self.cor, self.estoque, self.unidade,self.preco, self.id_produto
             return self
         except Exception as e:
             print("Problema ao atualizar estoque")
@@ -36,6 +37,7 @@ class Estoque():
         d['tipo']= self.tipo
         d['cor'] = self.cor
         d['estoque'] = self.estoque
+        d["preco"] = self.preco
         d['unidade'] = self.unidade
         d['id_produto']=self.id_produto
         return d
@@ -48,8 +50,9 @@ class Estoque():
             cor = dados["cor"]
             estoque = dados["estoque"]
             unidade = dados["unidade"]
+            preco = dados["preco"]
             id_produto=dados["id_produto"]
-            return Estoque(nome=nome, tipo=tipo, cor=cor, estoque=estoque, unidade=unidade, id_produto=id_produto)
+            return Estoque(nome=nome, tipo=tipo, cor=cor, estoque=estoque, unidade=unidade, id_produto=id_produto, preco=preco)
         except Exception as e:
             print("Problema ao criar novo estoque!")
             print(e)
@@ -78,10 +81,10 @@ class Estoque():
             cor = dados[3]
             estoque = dados[4]
             unidade = dados[5]
-            valor = dados[6]
+            preco = dados[6]
             dataCompra =  dados[7]
             id_produto = dados[8]
-            return Estoque(nome=nome, tipo=tipo, cor=cor, estoque=estoque, unidade=unidade, id_produto=id_produto, id=id, valor=valor, dataCompra=dataCompra)
+            return Estoque(nome=nome, tipo=tipo, cor=cor, estoque=estoque, unidade=unidade, id_produto=id_produto, id=id, preco=preco, dataCompra=dataCompra)
         except Exception as e:
             print("Problema ao criar novo estoque!")
             print(e)

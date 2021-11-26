@@ -23,7 +23,7 @@ def localiza_ultimas_compras():
 def novo(estoque):
     con = MySQL.connect(host="localhost",user="root",passwd="root",database="artes")
     cursor =con.cursor()   
-    cursor.execute("insert into produto_base(nome, cor, unidade) values('"+estoque['nome']+"','"+estoque["cor"]+"','"+estoque["unidade"]+"')")
+    cursor.execute("insert into compras(id_produto, tipo, valor, quantidade) values('"+estoque['id_produto']+"','"+estoque["tipo"]+"','"+estoque["preco"]+"','"+estoque["estoque"]+"')")
     con.commit()
     con.close()
 
