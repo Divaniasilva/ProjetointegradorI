@@ -35,6 +35,12 @@ def validar_login():
         return render_template("home.html", mensagem = f"Seja bem vindo! tester", estoque=localizado, editavel=None)
     return render_template("index.html", mensagem = f"Documento e/ou senha invalidos")
 
+@usuarios_app.route("/home")
+def pagina_compras():
+    localizado=localiza_compras()
+    return render_template("home.html", mensagem="", estoque=localizado, editavel=None)
+    
+
 
 
 # Converte uma lista de linhas em um lista de dicionários.
@@ -84,13 +90,10 @@ def teste():
 	    jsonify({'Error': e.message})
     return jsonify(endereco)
 
+
 @usuarios_app.route("/")
 def menu():
     return render_template("index.html", mensagem = "")
-
-#@usuarios_app.route("/cadastrar_usuarios")
-#def usuarios_form():
-#    return render_template("cadastrar_usuarios.html", editavel=None)
 
 @usuarios_app.route("/usuario/<id_usuario>")
 def rendireciona_update(id_usuario):

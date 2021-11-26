@@ -1,31 +1,13 @@
-from flask import Flask, render_template, request, Blueprint, jsonify
-import mysql.connector as MySQL
+from flask import Flask, render_template, request, Blueprint
 
 produtos_app = Blueprint('produtos_app', __name__, template_folder='templates')
 
-from datetime import datetime
 from controller.produtosController import listar as service_listar, \
     localiza as service_localiza, \
     novo as service_novo, \
     atualiza as service_atualiza
 
-#from controller.usuarioController import listar as service_usuario_listar, localiza as service_usuario_localiza
-#from controller.carrinhoController import novo as novo_carrinho, listar as listar_carrinho
 
-
-# @produtos_app.route("/produtos_lista")
-# def lista_produto():
-#     listados = list()
-#     produtos = service_listar()
-#     local_user = service_usuario_localiza(os.environ['__usuario_id'])
-#     usuarios = service_usuario_listar()
-#     for produto in produtos:
-#         for usu in usuarios:
-#             #Criar um espaço para os itens daquele fornecedor
-#             if(usu.id != local_user.id and usu.id == produto.id_fornecedor):
-#                 #produto.km = __tomtom.resolve_distancia(local_user, usu)
-#                 listados.append(produto)
-#     return render_template("lista_produtos.html", produtos=bubble_sort(listados))
 
 @produtos_app.route("/produtos_lista")
 def lista_produto():
