@@ -13,7 +13,7 @@
 		<!-- CABEÇALHO -->
 		<header class="header">
 
-			<div class="logo">GESTÃO DE ESTOQUE  </div>
+			<div class="logo">GESTÃO DE ESTOQUE </div>
 
 			<div class="box">
 				<div style="width: 350px; height: 50px; float: left; text-align: center; padding-top: 13px;">
@@ -35,7 +35,7 @@
 				<!-- PaginaInicial -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/home">
-						<li>
+						<li class="active">
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;">Pagina Inicial</div>
@@ -71,7 +71,7 @@
 				<!-- CARRINHO -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/carrinho">
-						<li id='divcar'>
+						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;" >Compras</div>
@@ -82,8 +82,8 @@
 
 				<!-- CADASTRAR PRODUTOS -->
 				<ul style="margin-bottom: 0px;">
-					<a href="/produto">
-						<li class="active">
+					<a href="/produtos">
+						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;">Cadastrar Produtos Base</div>
@@ -95,7 +95,7 @@
 				<!-- CADASTRAR ESTOQUE -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/estoque">
-						<li id="divcar">
+						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
 								<div style="margin-top: 2px; float: left;">Cadastrar estoque</div>
@@ -107,26 +107,45 @@
 
 			<div class="container_conteudo">
                 <div class="cadastra_produto">
+		
+					<!-- PRODUTOS -->
+					<h4>Últimas compras</h4>
 
-					<h4>Cadastrar Produto</h4>
-
-					<div class="seg_form">
-
-						<label>Dados do produto:</label>
-
-						<!-- FORMULÁRIO PARA CADASTRAR PRODUTOS -->
-						<form action="/produtos{%if editavel!= None%}/{{editavel.id}}{% endif %}" method="POST">
-							<div class="form-group">
-								<input type="text" value="{{editavel.nome}}" class="form-control" id="id_nome_produto" name="id_nome_produto" placeholder="Nome" required>
-							</div>
-							<div class="form-group">
-								<input type="text"value="{{editavel.cor}}" class="form-control" id="id_cor" name="id_cor" placeholder="Cor" required>
-							</div>
-							<div class="form-group">
-								<input type="text" value="{{editavel.unidade}}" class="form-control" id="id_unidade" name="id_unidade" placeholder="Unidade de Medida" required>
-							</div>
-							<input type="submit" class="btn_cadastro_prod" name="btn_enviar" value="{%if editavel== None%}Cadastrar{%else%}Editar{% endif %}">
-						</form>
+					<div class="lista_produto">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col" style="text-align: left;">Nome</th>
+									<th scope="col" style="text-align: left;">Tipo</th>
+									<th scope="col" style="text-align: left;">Cor</th>
+									<th scope="col" style="text-align: left;">Quantidade</th>
+									<th scope="col" style="text-align: left;">Unidade</th>
+									<th scope="col" style="text-align: left;">Valor</th>
+									<th scope="col" style="text-align: left;">Data Comprado</th>
+									<!--<th scope="col" style="text-align: right;">Distancia</th>
+									<th scope="col" style="text-align: right;">Status</th>-->
+                                    <th scope="col" style="text-align: center; color: white;">Opções</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for e in estoque %}
+								<tr>
+									<td style="text-align: left;">{{e.nome}}</td>
+									<td style="text-align: left;">{{e.tipo}}</td>
+									<td style="text-align: left;">{{e.cor}}</td>
+									<td style="text-align: left;">{{e.estoque}}</td>
+									<td style="text-align: left;">{{e.unidade}}</td>
+									<td style="text-align: left;">{{e.valor}}</td>
+									<td style="text-align: left;">{{e.dataCompra}}</td>
+									<td style="text-align: center;">
+										<a href="/estoque/{{e.id}}" method="POST">
+                                            <img src="/static/imagens/icons/update.png" alt="Editar" title="Editar produto base">
+										</a>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>

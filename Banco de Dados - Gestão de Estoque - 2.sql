@@ -47,9 +47,10 @@ insert into compras(id_produto, tipo, valor, quantidade) values(4,'Tecido',0, -0
 select * from compras;
 
 #tela inicial com ultimas compras
-select c.id, pb.nome, c.tipo, pb.cor, c.quantidade, pb.unidade, c.valor, DATE_FORMAT(c.data_compra, "%d/%m/%Y") as 'Ultima compra' from compras as c
+select c.id, pb.nome, c.tipo, pb.cor, c.quantidade, pb.unidade, c.valor, DATE_FORMAT(c.data_compra, "%d/%m/%Y") as 'Ultima compra', c.id_produto from compras as c
 inner join produto_base as pb
-on c.id_produto = pb.id; 
+on c.id_produto = pb.id
+order by c.data_compra desc;
 
 #Tabela final de estoque,
 #Validação de baixa de estoque = Cadastrar uma compra nova (apenas via backend) com valor negativo

@@ -8,10 +8,10 @@ class Produtos():
 
     def atualizar(self, dados):
         try:
-            id = dados["id"]
-            nome = dados["nome"]
-            cor = dados["cor"]
-            unidade = dados["unidade"]
+            self.id = dados["id"]
+            self.nome = dados["nome"]
+            self.cor = dados["cor"]
+            self.unidade = dados["unidade"]
             self.id, self.nome, self.cor, self.unidade
             return self
         except Exception as e:

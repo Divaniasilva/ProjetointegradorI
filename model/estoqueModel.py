@@ -1,12 +1,14 @@
 class Estoque():
-    def __init__(self, nome, tipo, cor,estoque,unidade, id_produto,id=None):
-        self.id = id
-        self.id_produto=id_produto
-        self.nome = nome
-        self.tipo = tipo
-        self.cor = cor
-        self.estoque = estoque
-        self.unidade = unidade
+    def __init__(self, nome, tipo, cor,estoque,unidade, id_produto,id=None, valor=None, dataCompra=None):
+        self.id =id
+        self.id_produto =id_produto
+        self.nome =nome
+        self.tipo =tipo
+        self.cor =cor
+        self.estoque =estoque
+        self.unidade =unidade
+        self.valor =valor
+        self.dataCompra =dataCompra
 
 
     def atualizar(self, dados):
@@ -62,7 +64,24 @@ class Estoque():
             estoque = dados[4]
             unidade = dados[5]
             id_produto = dados[6]
-            return Estoque(id=id, nome=nome, tipo=tipo, cor=cor, estoque=estoque, unidade=unidade, id_produto=id_produto)
+            return Estoque(nome=nome, tipo=tipo, cor=cor, estoque=estoque, unidade=unidade, id_produto=id_produto,id=id )
+        except Exception as e:
+            print("Problema ao criar novo estoque!")
+            print(e)
+            
+    @staticmethod
+    def cria_de_tupla_ultima_compra(dados):
+        try:
+            id = dados[0]
+            nome = dados[1]
+            tipo = dados[2]
+            cor = dados[3]
+            estoque = dados[4]
+            unidade = dados[5]
+            valor = dados[6]
+            dataCompra =  dados[7]
+            id_produto = dados[8]
+            return Estoque(nome=nome, tipo=tipo, cor=cor, estoque=estoque, unidade=unidade, id_produto=id_produto, id=id, valor=valor, dataCompra=dataCompra)
         except Exception as e:
             print("Problema ao criar novo estoque!")
             print(e)

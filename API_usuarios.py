@@ -5,6 +5,7 @@ import os
 import pycep_correios
 
 from datetime import datetime
+from controller.estoqueController import localiza_compras
 from controller.usuarioController import listar as service_listar, \
     localiza as service_localiza, \
     novo as service_novo, \
@@ -23,15 +24,15 @@ def row_to_dict(description, row):
         dict[description[i][0]] = row[i]
     return dict
 
-@usuarios_app.route("/logado", methods = ["POST"])
+@usuarios_app.route("/home", methods = ["POST"])
 def validar_login():
     user = dict()
     user["documento"] = request.form["documento"].replace('.','').replace('-','')
     user["senha"] = request.form["senha"]
     #Validação temporária
-
     if(user["documento"] == '4321' and user["senha"]=='1234'):
-        return render_template("cadastrar_produtos.html", mensagem = f"Seja bem vindo! tester", editavel=None)
+        localizado=localiza_compras()
+        return render_template("home.html", mensagem = f"Seja bem vindo! tester", estoque=localizado, editavel=None)
     return render_template("index.html", mensagem = f"Documento e/ou senha invalidos")
 
 

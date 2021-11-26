@@ -32,6 +32,18 @@
 			<!-- MENU DE NAVEGAÇÃO LATERAL -->
 			<nav class="nav">
 
+				<!-- PaginaInicial -->
+				<ul style="margin-bottom: 0px;">
+					<a href="/home">
+						<li>
+							<div style="width: 100%; height: 25px; padding-left: 18px;">
+								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
+								<div style="margin-top: 2px; float: left;">Pagina Inicial</div>
+							</div>
+						</li>
+					</a>
+				</ul>
+
 				<!-- PRODUTOS -->
 				<ul style="margin-bottom: 0px;">
 					<a href="/produtos_lista">
@@ -62,7 +74,7 @@
 						<li>
 							<div style="width: 100%; height: 25px; padding-left: 18px;">
 								<!-- <div style="margin-right: 10px; float: left;"><img src="/static/imagens/icons/produto.png"></div> -->
-								<div style="margin-top: 2px; float: left;" >Carrinho</div>
+								<div style="margin-top: 2px; float: left;" >Compras</div>
 							</div>
 						</li>
 					</a>
@@ -97,7 +109,7 @@
 			<div class="container_conteudo">
                 <div class="cadastra_produto">
 
-					<h4>Cadastrar Produto</h4>
+					<h4>Cadastrar Estoque</h4>
 
 					<div class="seg_form">
 
@@ -110,12 +122,6 @@
 									<option value="{{prod.id}}">{{prod.nome}} - {{prod.cor}}</option>
 								{% endfor %}
 							</select>
-							<div class="form-group">
-								<input type="text" class="form-control" id="id_nome_produto" name="id_nome_produto" placeholder="Nome" maxlength="30" readonly>
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control" id="id_descricao_produto" name="id_descricao" placeholder="Descrição" maxlength="40" readonly>
-							</div>
 							<div class="form-row">
 								<div class="form-group col-md-6" style="padding-left: 0px; padding-right: 0px;">
 									<input type="text" class="form-control" id="id_qtd_produto" name="id_qtd_produto" placeholder="Quantidade" maxlength="3" required>
