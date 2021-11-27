@@ -111,9 +111,6 @@
 									<th scope="col" style="text-align: left;">Unidade</th>
 									<th scope="col" style="text-align: left;">Valor</th>
 									<th scope="col" style="text-align: left;">Data Comprado</th>
-									<!--<th scope="col" style="text-align: right;">Distancia</th>
-									<th scope="col" style="text-align: right;">Status</th>-->
-                                    <th scope="col" style="text-align: center; color: white;">Opções</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -126,11 +123,6 @@
 									<td style="text-align: left;">{{e.unidade}}</td>
 									<td style="text-align: left;">{{e.valor}}</td>
 									<td style="text-align: left;">{{e.dataCompra}}</td>
-									<td style="text-align: center;">
-										<a href="/estoque/{{e.id}}" method="POST">
-                                            <img src="/static/imagens/icons/update.png" alt="Editar" title="Editar produto base">
-										</a>
-									</td>
 								</tr>
 								{% endfor %}
 							</tbody>
