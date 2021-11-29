@@ -22,8 +22,7 @@ def cadastra_estoque():
     estoque["tipo"]=request.form["id_tipo_produto"]
     estoque["estoque"]=request.form["id_qtd_produto"]
     estoque["preco"]=request.form["id_preco_produto"]
-    service_novo(estoque)
-    localizado=localiza_compras()
+    localizado=service_novo(estoque)
     return render_template("home.html", mensagem="Estoque cadastrado com sucesso", estoque=localizado, editavel=None)
 
 
@@ -36,3 +35,29 @@ def visualiza_estoque():
 def carrega_estoque():
     localizado=service_listar();
     return render_template("lista_estoque.html", mensagem="", editavel=None, estoque=localizado)
+
+@estoque_app.route("/estoque/<id_estoque>", methods = ["GET","POST"])
+def baixa_estoque(id_estoque):
+    item = service_localiza(id_estoque)
+    msg,estoque = realiza_baixa(item, request) 
+    if(estoque != None):
+        localizado=service_novo(estoque)
+        site = "home.html"
+    else:
+        localizado=service_listar();
+        site="lista_estoque.html"
+    return render_template(site, mensagem=msg, editavel=None, estoque=localizado)
+
+def realiza_baixa(item, estoque):
+    if(float(estoque.form["id_baixa"].replace(",",".")) > float(item.estoque)):
+        return "Quantidade insuficiente em estoque", None
+    baixa=dict()
+    baixa["nome"] = item.nome
+    baixa["cor"] = item.cor
+    baixa["unidade"] = item.unidade
+    baixa["tipo"]=item.tipo
+    baixa["estoque"]="-"+str(estoque.form["id_baixa"]).replace(",",".")
+    baixa["id_produto"]=str(item.id_produto)
+    baixa["preco"]="0"
+    return "Baixa efetuada, estoque atualizado", baixa
+    

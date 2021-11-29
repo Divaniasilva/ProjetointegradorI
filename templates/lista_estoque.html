@@ -117,19 +117,22 @@
 							</thead>
 							<tbody>
 								{% for e in estoque %}
-								<tr>
-									<td style="text-align: left;">{{e.nome}}</td>
-									<td style="text-align: left;">{{e.tipo}}</td>
-									<td style="text-align: left;">{{e.cor}}</td>
-									<td style="text-align: left;">{{e.estoque}}</td>
-									<td style="text-align: left;">{{e.unidade}}</td>
-									<td style="text-align: right;"><input type="text" style="width:75px;" class="form-control" id="id_baixa" name="id_baixa" placeholder=".." required></td>
-									<td style="text-align: center;">
-										<a href="/estoque/{{e.id}}" method="POST">
-                                            <img src="/static/imagens/icons/ok.png" alt="Editar" title="Editar produto base">
-										</a>
-									</td>
-								</tr>
+								<form action="/estoque/{{e.id}}" method="POST">
+									<tr>
+										<td style="text-align: left;" id="id_nome_produto">{{e.nome}}</td>
+										<td style="text-align: left;" id="id_cor">{{e.tipo}}</td>
+										<td style="text-align: left;" id="id_unidade">{{e.cor}}</td>
+										<td style="text-align: left;" id="id_qtd_produto">{{e.estoque}}</td>
+										<td style="text-align: left;" id="id_tipo_produto">{{e.unidade}}</td>
+										<td style="text-align: right;"><input type="text" style="width:75px;" class="form-control" id="id_baixa" name="id_baixa" placeholder=".." required></td>
+										<td style="text-align: center;">
+											<!--<a href="/estoque/baixa/{{e.id}}" method="POST">-->
+											<input type="image"src="/static/imagens/icons/ok.png" name="btn_enviar" alt="Submit">
+												<!--img src="/static/imagens/icons/ok.png" alt="Editar" title="Baixa de estoque">-->
+											
+										</td>
+									</tr>
+								</form>
 								{% endfor %}
 							</tbody>
 						</table>

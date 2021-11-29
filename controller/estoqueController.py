@@ -17,12 +17,5 @@ def localiza_compras():
 def novo(novo_estoque):
     p = Estoque.cria(novo_estoque)
     novo_dao(p.__dict__())
-    #return listar_dao()
+    return localiza_compras()
 
-# def atualiza(novo_estoque):
-#     for p in listar_dao():
-#         #Nada de editar chaves primarias nem id
-#         if str(p.id)==str(novo_estoque['id']):
-#             atualiza_dao(novo_estoque)
-#             return p
-#     return None
